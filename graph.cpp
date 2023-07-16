@@ -15,7 +15,7 @@ struct simpul {
 simpul* p, * first, * last, * Q, * R;
 simpul* points[4];
 int A[4][4] = {
-        {0, 6, 9, 5},
+        {0, 6, 5, 9},
         {6, 0, 2, 8},
         {5, 2, 0, 7},
         {9, 8, 7, 0},
@@ -23,7 +23,6 @@ int A[4][4] = {
 
     string namaKota[] = {"K", "L", "M", "N"};
     int i, j;
-    int urutanTerpilih[4];
     int banyakKota = sizeof(namaKota) / sizeof(namaKota[0]);
 
 void TampilkanJarakAntarKota () {
@@ -51,7 +50,7 @@ void TampilkanJarakAntarKota () {
     for (i = 0; i < banyakKota; i++) {
         R = Q;
         cout << "-------------------------------------" << endl;
-        cout << "Jarak Kota " << Q->info << endl;
+        cout << "x> Jarak Kota " << Q->info << endl;
         for (j = 0; j < banyakKota; j++) {
             if (A[i][j] != 0) {
                 p = new simpul;
@@ -73,6 +72,7 @@ void TampilkanJarakAntarKota () {
 void HitungJarakTerpendek () {
     // Mencari jalur terpendek untuk memutari seluruh kota
     string vertexMulai;
+    int urutanTerpilih[4];
     cout << "---------------------------------------------------------"<<endl;
     cout << "Masukkan Kota dimana anda akan memulai ekspedisi anda: ";
     cin >> vertexMulai;
@@ -121,7 +121,6 @@ void HitungJarakTerpendek () {
         cout << namaKota[urutanTerpilih[i]] << " ";
     }
     cout << endl;
-    cout <<"---------------------------------------------"<<endl;
 }
 
 void TampilkanMenu () {
